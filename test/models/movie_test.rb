@@ -66,7 +66,8 @@ describe Movie do
     movie_rentals = movie.rentals
 
     expect(movie_rentals.length).must_equal 1
-    expect(rental.checkout).must_be_instance_of Date
+    expect(movie_rentals.first).must_be_instance_of Rental
     end
+
   end
 end
