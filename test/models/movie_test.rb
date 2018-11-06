@@ -61,13 +61,13 @@ describe Movie do
   describe 'relations' do
     it "can access an array of rentals" do
     movie = movies(:movie_with_all_params)
-    rental = rentals(:rental_one)
+    rental = rentals(:rental_two)
 
     movie_rentals = movie.rentals
 
     expect(movie_rentals.length).must_equal 1
-    expect(rental.checkout).must_be_instance_of Date
-    puts rental.checkout.class
+    expect(movie_rentals.first).must_be_instance_of Rental
     end
+
   end
 end
