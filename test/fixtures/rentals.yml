@@ -5,12 +5,12 @@
 # below each fixture, per the syntax in the comments below
 #
 rental_one:
- checkout: 2018-10-00
- due_date: 2018-10-07
+ checkout: 2018-10-01
+ due_date: 2018-10-08
  movie: existing_movie
  customer: jarth
 rental_two:
-   checkout: 2018-10-00
-   due_date: 2018-10-07
-   movie: movie_with_all_params
-   customer: jarth
+  checkout: 2018-10-01
+  due_date: 2018-10-08
+  movie: movie_with_all_params
+  customer: jarth
