@@ -9,5 +9,11 @@ movie_with_all_params:
   overview: A copycat of Pan's Labyrinth
   release_date: 1999-02-24
   inventory: 12
-# two: {}
-# # column: value
+movie_with_title_and_inv:
+  title: Waiting to Exhale
+  inventory: 8
+existing_movie:
+  title: Solid as Jello
+  overview: A film about wiggling
+  release_date: 2018-12-11
+  inventory: 4
