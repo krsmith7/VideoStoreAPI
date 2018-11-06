@@ -58,15 +58,16 @@ describe Movie do
     end
   end
 
-  # describe 'relations' do
-  #   it "can access an array of rentals" do
-  #   movie = movies(:movie_with_all_params)
-  #   rental = rentals(:rental_two)
-  #
-  #   movie_rentals = movie.rentals
-  #
-  #   expect(movie_rentals.length).must_equal 1
-  #   expect(rental.checkout).must_be_instance_of Date
-  #   end
+  describe 'relations' do
+    it "can access an array of rentals" do
+    movie = movies(:movie_with_all_params)
+    rental = rentals(:rental_one)
+
+    movie_rentals = movie.rentals
+
+    expect(movie_rentals.length).must_equal 1
+    expect(rental.checkout).must_be_instance_of Date
+    puts rental.checkout.class
+    end
   end
 end
