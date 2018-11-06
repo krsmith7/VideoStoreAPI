@@ -14,7 +14,7 @@ describe Customer do
       expect(result).must_equal true
     end
 
-    it 'fails without name arg' do
+    it 'is invalid without name arg' do
       @customer.name = nil
 
       result = @customer.valid?
@@ -23,7 +23,7 @@ describe Customer do
       expect(@customer.errors.messages).must_include :name
     end
 
-    it 'fails when name is empty str' do
+    it 'is invalid when name is empty str' do
       @customer.name = ""
 
       result = @customer.valid?
