@@ -47,10 +47,13 @@ describe MoviesController do
       expect(body).must_be_kind_of Hash
     end
 
-    it "responds with not found message if no movie is found" do
+    it "responds with not found error message if no movie is found" do
       invalid_id = 00
       get movie_path(invalid_id)
       must_respond_with :not_found
+
+      body = JSON.parse(response.body)
+      expect(body["errors"]).must_include "movie_id"
     end
   end
 
@@ -77,7 +80,7 @@ describe MoviesController do
       must_respond_with :success
     end
 
-    it "returns bad request error for invalid movie data" do
+    it "returns bad request error for missing title" do
       movie_input["title"] = nil
 
       expect {
