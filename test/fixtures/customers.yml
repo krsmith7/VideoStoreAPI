@@ -12,3 +12,15 @@ jarth:
   postal_code: 42069
   phone: 666-420-6969
   registered_at: 2018-1-1
+leeloo:
+  name: Aeeloo Jallas
+  address: 2 Multipass
+  city: New York City
+  state: NY
+  postal_code: 10001
+peter:
+  name: Peter Parker
+  address: 2312 Road
+  city: Pittsburgh
+  state: PA
+  postal_code: 23231
