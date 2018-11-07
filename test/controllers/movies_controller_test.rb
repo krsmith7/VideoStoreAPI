@@ -45,6 +45,7 @@ describe MoviesController do
       body = JSON.parse(response.body)
       must_respond_with :success
       expect(body).must_be_kind_of Hash
+      expect(body["title"]).must_include movies(:movie).title
     end
 
     it "responds with not found error message if no movie is found" do
