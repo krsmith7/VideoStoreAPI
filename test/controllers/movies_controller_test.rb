@@ -54,4 +54,41 @@ describe MoviesController do
     end
   end
 
+  describe "create" do
+    let(:movie_input) {
+      {
+        title: "Gingerbread Ginger",
+        overview: "A tale of two gingerbread people",
+        release_date: "1998-12-25",
+        inventory: 5
+      }
+    }
+
+    it "creates new movie given valid data" do
+      expect {post movies_path, params: movie_input
+        }.must_change "Movie.count", 1
+
+      body = JSON.parse(response.body)
+      expect(body).must_be_kind_of Hash
+      expect(body).must_include "id"
+
+      created_movie = Movie.find(body["id"].to_i)
+      expect(created_movie.title).must_equal movie_input[:title]
+      must_respond_with :success
+    end
+
+    it "returns bad request error for invalid movie data" do
+      movie_input["title"] = nil
+
+      expect {
+        post movies_path, params: movie_input
+      }.wont_change "Movie.count"
+
+      body = JSON.parse(response.body)
+      expect(body).must_include "errors"
+      expect(body["errors"]).must_include "title"
+      must_respond_with :bad_request
+    end
+  end
+
 end
