@@ -1,9 +1,9 @@
 class RentalsController < ApplicationController
 
   def checkout
-    movie = Movie.find(checkout_params[:movie_id])
-    if movie.availabe_inventory > 0
-      rental = Rental.new(checkout_params)
+    movie = Movie.find(rental_params[:movie_id])
+    if movie.available_inventory > 0
+      rental = Rental.new(rental_params)
 
       if rental.save
         Movie.find(rental.movie_id).decrement!(:available_inventory)
@@ -29,8 +29,8 @@ class RentalsController < ApplicationController
 
   def checkin
     rental = Rental.find_by(
-      customer_id: checkin_params[:customer_id],
-      movie_id: checkin_params[:movie_id],
+      customer_id: rental_params[:customer_id],
+      movie_id: rental_params[:movie_id],
       returned: false
     )
 
@@ -56,13 +56,7 @@ class RentalsController < ApplicationController
 
   private
 
-  def checkout_params
-    params[:checkout] = Date.today
-    params[:due_date] = Date.today + 7
-    params.permit(:customer_id, :movie_id, :checkout, :due_date)
-  end
-
-  def checkin_params
+  def rental_params
     params.permit(:customer_id, :movie_id)
   end
 end

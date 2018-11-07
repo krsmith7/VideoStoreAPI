@@ -30,16 +30,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params[:release_date]
-      params[:release_date] = parse_date(params[:release_date])
-    params[:available_inventory] = params[:inventory]
-
     params.permit(:title, :overview, :release_date, :inventory, :available_inventory)
-  end
-
-  def parse_date(string)
-    arr = string.split("-")
-    return Date.new(arr[0].to_i, arr[1].to_i, arr[2].to_i)
   end
 
 end
