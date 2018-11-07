@@ -11,6 +11,7 @@ class RentalsController < ApplicationController
         name = Customer.find(rental.customer_id).name
         title = Movie.find(rental.movie_id).title
         render json: {
+          id: rental.id,
           customer: name,
           customer_id: rental.customer_id,
           movie: title,
@@ -43,6 +44,7 @@ class RentalsController < ApplicationController
       name = Customer.find(rental.customer_id).name
       title = Movie.find(rental.movie_id).title
       render json: {
+        id: rental.id,
         customer: name,
         customer_id: rental.customer_id,
         movie: title,
