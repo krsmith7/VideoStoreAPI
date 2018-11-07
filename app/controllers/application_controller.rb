@@ -4,7 +4,4 @@ class ApplicationController < ActionController::API
     render json: { errors: errors }, status: status
   end
 
-  def params_check(params_meth)
-  end
-
 end

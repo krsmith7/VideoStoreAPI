@@ -25,7 +25,7 @@ class RentalsController < ApplicationController
     elsif movie
       render json: { errors: { inventory: ["No copies of this movie available right now"] } }, status: :bad_request
     else
-      render json: { errors: { movie_id: ["ID does not exist"] } }, status: :bad_request
+      render json: { errors: { movie_id: ["Movie not found :("] } }, status: :not_found
     end
   end
 
