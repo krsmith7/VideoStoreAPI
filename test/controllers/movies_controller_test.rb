@@ -37,4 +37,21 @@ describe MoviesController do
       end
     end
   end
+
+  describe "show" do
+    it "can get one movie" do
+      get movie_path(movies(:movie).id)
+
+      body = JSON.parse(response.body)
+      must_respond_with :success
+      expect(body).must_be_kind_of Hash
+    end
+
+    it "responds with not found message if no movie is found" do
+      invalid_id = 00
+      get movie_path(invalid_id)
+      must_respond_with :not_found
+    end
+  end
+
 end
