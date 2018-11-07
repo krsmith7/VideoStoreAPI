@@ -17,3 +17,8 @@ existing_movie:
   overview: A film about wiggling
   release_date: 2018-12-11
   inventory: 4
+movie:
+  title: Cool Indie Movie
+  overview: Artsy and pretentious
+  release_date: 2018-11-05
+  inventory: 12
