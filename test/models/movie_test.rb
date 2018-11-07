@@ -48,14 +48,6 @@ describe Movie do
       expect(result).must_equal false
     end
 
-
-    it "must be invalid if inventory is less than 1" do
-      movie = movies(:movie_with_all_params)
-      movie.inventory = 0
-
-      result = movie.valid?
-      expect(result).must_equal false
-    end
   end
 
   describe 'relations' do
