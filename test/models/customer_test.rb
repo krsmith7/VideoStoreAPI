@@ -10,6 +10,7 @@ describe Customer do
 
     it 'is valid when all fields are pwesent' do
       result = @customer.valid?
+      binding.pry
 
       expect(result).must_equal true
     end
