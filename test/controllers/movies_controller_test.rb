@@ -25,5 +25,16 @@ describe MoviesController do
       body = JSON.parse(response.body)
       body.length.must_equal Movie.count
     end
+
+    it "returns movies with all required fields" do
+      movie_fields = %w(id release_date title)
+      get movies_path
+
+      body = JSON.parse(response.body)
+
+      body.each do |movie|
+        expect(movie.keys.sort).must_equal movie_fields
+      end
+    end
   end
 end
