@@ -25,5 +25,16 @@ describe CustomersController do
       body = JSON.parse(response.body)
       body.length.must_equal Customer.count
     end
+
+    it "returns customers with all required fields" do
+      customer_detail_fields = %w(id movies_checked_out_count name phone postal_code registered_at)
+      get customers_path
+
+      body = JSON.parse(response.body)
+
+      body.each do |customer|
+        expect(customer.keys.sort).must_equal customer_detail_fields
+      end
+    end
   end
 end
