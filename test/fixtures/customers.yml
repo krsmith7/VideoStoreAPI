@@ -11,6 +11,4 @@ jarth:
   state: FL
   postal_code: 42069
   phone: 666-420-6969
-  registered_at: DateTime.now
-# two: {}
-# column: value
+  registered_at: 2018-1-1
