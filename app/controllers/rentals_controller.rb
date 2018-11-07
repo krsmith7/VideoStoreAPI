@@ -1,8 +1,8 @@
 class RentalsController < ApplicationController
 
   def checkout
-    movie = Movie.find(rental_params[:movie_id])
-    if movie.available_inventory > 0
+    movie = Movie.find_by(id: rental_params[:movie_id])
+    if movie && movie.available_inventory > 0
       rental = Rental.new(rental_params)
 
       if rental.save
@@ -22,8 +22,10 @@ class RentalsController < ApplicationController
       else
         render_error(:bad_request, rental.errors.messages)
       end
-    else
+    elsif movie
       render json: { errors: { inventory: ["No copies of this movie available right now"] } }, status: :bad_request
+    else
+      render json: { errors: { movie_id: ["ID does not exist"] } }, status: :bad_request
     end
   end
 
