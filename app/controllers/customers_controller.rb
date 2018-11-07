@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   def index
     if params[:sort].present?
       sort_field = params[:sort]
-
+      # REFACTOR: use compact if [array] statement
       case sort_field
         when "name"
           customers = Customer.all.sort_by do |customer|
