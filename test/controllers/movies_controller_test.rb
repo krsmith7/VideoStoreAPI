@@ -36,6 +36,15 @@ describe MoviesController do
         expect(movie.keys.sort).must_equal movie_fields
       end
     end
+
+    it "returns movies sorted if sort param present" do
+      sorted_movies = Movie.all.order(title: :asc)
+
+      get '/movies?sort=title'
+
+      body = JSON.parse(response.body)
+      expect(body.first["title"]).must_include sorted_movies.first[:title]
+    end
   end
 
   describe "show" do
@@ -45,6 +54,7 @@ describe MoviesController do
       body = JSON.parse(response.body)
       must_respond_with :success
       expect(body).must_be_kind_of Hash
+      expect(body["title"]).must_include movies(:movie).title
     end
 
     it "responds with not found error message if no movie is found" do

@@ -36,5 +36,14 @@ describe CustomersController do
         expect(customer.keys.sort).must_equal customer_detail_fields
       end
     end
+
+    it "returns customers sorted if sort param present" do
+      sorted_customers = Customer.all.order(name: :asc)
+
+      get '/customers?sort=name'
+
+      body = JSON.parse(response.body)
+      expect(body.first["name"]).must_include sorted_customers.first[:name]
+    end
   end
 end

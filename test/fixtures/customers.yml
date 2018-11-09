@@ -14,9 +14,21 @@ jarth:
   registered_at: 2018-1-1
 gay:
   name: Gay Bro
-  address: 69 Gay Assland
+  address: 69 Gay Drive
   city: Gay
   state: HO
   postal_code: 99999
   phone: 888-666-9999
   registered_at: 2018-2-1
+leeloo:
+  name: Aeeloo Jallas
+  address: 2 Multipass
+  city: New York City
+  state: NY
+  postal_code: 10001
+peter:
+  name: Peter Parker
+  address: 2312 Road
+  city: Pittsburgh
+  state: PA
+  postal_code: 23231
