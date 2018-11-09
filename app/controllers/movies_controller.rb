@@ -38,15 +38,7 @@ SORTABLE_FIELDS = %w(title release_date)
   private
 
   def movie_params
-    params[:release_date]
-      params[:release_date] = parse_date(params[:release_date])
-
-    params.permit(:title, :overview, :release_date, :inventory)
-  end
-
-  def parse_date(string)
-    arr = string.split("-")
-    return Date.new(arr[0].to_i, arr[1].to_i, arr[2].to_i)
+    params.permit(:title, :overview, :release_date, :inventory, :available_inventory)
   end
 
 end

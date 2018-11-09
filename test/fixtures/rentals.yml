@@ -10,7 +10,13 @@ rental_one:
  movie: existing_movie
  customer: jarth
 rental_two:
- checkout: 2018-10-01
- due_date: 2018-10-08
- movie: movie_with_all_params
- customer: jarth
+  checkout: 2018-10-01
+  due_date: 2018-10-08
+  movie: movie_with_all_params
+  customer: jarth
+done_rental:
+  checkout: 2018-10-01
+  due_date: 2018-10-08
+  movie: existing_movie
+  customer: gay
+  returned: true
