@@ -1,6 +1,14 @@
 class MoviesController < ApplicationController
+
+SORTABLE_FIELDS = %w(title release_date)
   def index
-    movies = Movie.all
+    if params[:sort] && SORTABLE_FIELDS.include?(params[:sort])
+      sort_field = params[:sort]
+      movies = Movie.all.order(sort_field)
+    else
+      movies = Movie.all
+    end
+
     render json: movies.as_json(only: [:id, :title, :release_date]), status: :ok
   end
 

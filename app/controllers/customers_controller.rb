@@ -1,7 +1,8 @@
 class CustomersController < ApplicationController
 
+SORTABLE_FIELDS = %w(name postal_code registered_at)
   def index
-    if params[:sort]
+    if params[:sort] && SORTABLE_FIELDS.include?(params[:sort])
       sort_field = params[:sort]
       customers = Customer.all.order(sort_field)
     else
