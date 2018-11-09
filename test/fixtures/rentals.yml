@@ -14,3 +14,9 @@ rental_two:
   due_date: 2018-10-08
   movie: movie_with_all_params
   customer: jarth
+done_rental:
+  checkout: 2018-10-01
+  due_date: 2018-10-08
+  movie: existing_movie
+  customer: gay
+  returned: true

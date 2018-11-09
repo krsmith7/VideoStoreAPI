@@ -12,3 +12,11 @@ jarth:
   postal_code: 42069
   phone: 666-420-6969
   registered_at: 2018-1-1
+gay:
+  name: Gay Bro
+  address: 69 Gay Assland
+  city: Gay
+  state: HO
+  postal_code: 99999
+  phone: 888-666-9999
+  registered_at: 2018-2-1
